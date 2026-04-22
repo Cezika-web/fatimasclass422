@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Fatima — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Eventos, convites e substantivos no contexto</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Fatima &nbsp;•&nbsp;
+            <strong>Data:</strong> 22/04/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula sobre revisão de apostrophe-s e WH questions, eventos, leitura guiada e expressões para aceitar ou recusar convites.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, começamos com uma conversa livre sobre o seu feriado e sobre o <strong>campeonato da bateria</strong>, que será o seu primeiro campeonato. Nesse aquecimento, você já praticou vocabulário de opinião e adjetivos positivos, como <em>wonderful</em>, além de falar sobre datas e rotina do evento.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois, fizemos uma <strong>revisão importante de apostrophe-s</strong>, retomando como indicar posse no singular e no plural. Reforçamos exemplos como <em>Fatima’s car</em>, <em>Fatima’s cars</em>, <em>Lucas’ car</em>, <em>students’ bags</em> e <em>student’s bag</em>. Também revisitamos alguns <strong>WH questions</strong>, como <em>when</em>, <em>where</em>, <em>what</em>, <em>what time</em> e <em>how old</em>, que continuam sendo um ponto importante para memorizar.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Na página 14, entramos no tema de <strong>eventos</strong> e usamos isso para trabalhar uma diferença essencial: <strong>substantivo x verbo</strong>. A ideia principal foi entender que, quando uma frase começa com <em>a</em> ou <em>an</em>, o que vem depois normalmente será um <strong>substantivo</strong>, e não uma ação. Por isso, analisamos expressões como <em>a play</em>, <em>a dance performance</em> e <em>a talk about an interesting topic</em>, percebendo que <em>play</em>, <em>dance</em> e <em>talk</em> podem mudar de função dependendo do contexto.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Em seguida, fizemos uma leitura guiada e um listening na página 55 com uma conversa sobre <strong>convites para sair</strong>. O texto trouxe vocabulário de eventos, localização e preferências, com frases como <em>Would you like to go?</em>, <em>Are you in the mood for some live music?</em>, <em>That’s not for me</em> e <em>Now that’s more my style</em>. Além da compreensão geral da conversa, você também praticou a leitura em voz alta e trabalhou ritmo e ligação sonora em trechos como <em>about an interesting topic</em> e <em>let me check</em>.
+            </p>
+            <p style="margin:0;">
+              Na parte final, interpretamos as expressões em negrito do texto e conectamos cada uma ao seu contexto real: respostas positivas e negativas a um convite, formas de dizer do que se está a fim e maneiras de mostrar preferência. Fechamos com exercícios de compreensão usando <em>does / doesn’t</em> e respostas curtas. Na próxima aula, o plano é retomar a parte de <strong>speaking</strong> com as perguntas da página 15.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>In the mood for</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) a fim de / no clima para</em><br>
+                <small>I’m in the mood for some live music.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Possession</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) posse</em><br>
+                <small>Student’s bag.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Revisão gramatical</h3>
+            <ul>
+              <li><strong>apostrophe-s</strong> – apóstrofo-s / indicação de posse</li>
+              <li><strong>possession</strong> – posse</li>
+              <li><strong>singular</strong> – singular</li>
+              <li><strong>plural</strong> – plural</li>
+              <li><strong>WH questions</strong> – perguntas com WH</li>
+              <li><strong>when</strong> – quando</li>
+              <li><strong>where</strong> – onde</li>
+              <li><strong>what</strong> – o quê / qual</li>
+              <li><strong>what time</strong> – que horas</li>
+              <li><strong>how old</strong> – quantos anos</li>
+            </ul>
+
+            <h3>Eventos e contexto da unidade</h3>
+            <ul>
+              <li><strong>basketball game</strong> – jogo de basquete</li>
+              <li><strong>play</strong> – peça de teatro</li>
+              <li><strong>dance performance</strong> – apresentação de dança</li>
+              <li><strong>talk</strong> – conversa / palestra</li>
+              <li><strong>interesting topic</strong> – tópico interessante</li>
+              <li><strong>photo exhibit</strong> – exposição de fotos</li>
+              <li><strong>live music</strong> – música ao vivo</li>
+              <li><strong>band</strong> – banda</li>
+              <li><strong>show</strong> – show / apresentação</li>
+              <li><strong>tickets online</strong> – ingressos online</li>
+            </ul>
+
+            <h3>Expressões do texto</h3>
+            <ul>
+              <li><strong>Would you like to go?</strong> – você gostaria de ir?</li>
+              <li><strong>That’s not for me</strong> – isso não é muito a minha praia / isso não é pra mim</li>
+              <li><strong>That’s more my style</strong> – isso é mais meu estilo</li>
+              <li><strong>I’m a huge fan</strong> – eu sou muito fã</li>
+              <li><strong>That is way past my bedtime</strong> – isso já passou muito do meu horário de dormir</li>
+              <li><strong>Let me check</strong> – deixa eu verificar</li>
+              <li><strong>right around the corner</strong> – logo ali na esquina / bem perto</li>
+            </ul>
+
+            <h3>Vocabulário extra da aula</h3>
+            <ul>
+              <li><strong>wonderful</strong> – maravilhoso(a)</li>
+              <li><strong>championship</strong> – campeonato</li>
+              <li><strong>drum</strong> – tambor</li>
+              <li><strong>street</strong> – rua</li>
+              <li><strong>ordinal numbers</strong> – números ordinais</li>
+              <li><strong>November tenth</strong> – décimo de novembro</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Wonderful holiday.</li>
+              <li>Fatima’s car.</li>
+              <li>Fatima’s cars.</li>
+              <li>Lucas’ car.</li>
+              <li>Students’ bags.</li>
+              <li>Student’s bag.</li>
+              <li>A play with my favourite actors.</li>
+              <li>A dance performance.</li>
+              <li>A talk about an interesting topic.</li>
+              <li>Are you free this weekend?</li>
+              <li>What do you have in mind?</li>
+              <li>Would you like to go?</li>
+              <li>That’s not for me.</li>
+              <li>Are you in the mood for some live music?</li>
+              <li>Now that’s more my style.</li>
+              <li>I’m a huge fan.</li>
+              <li>That is way past my bedtime.</li>
+              <li>Let me check.</li>
+              <li>I’m in the mood for sleep.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Apostrophe-s:</strong> reforçamos que o apóstrofo fica em quem possui. Ex.: <em>Fatima’s car</em>. No plural com <em>s</em>, ele vem depois do <em>s</em>: <em>students’ bags</em>.</li>
+              <li><strong>Nomes terminados em s:</strong> em nomes como <em>Lucas</em>, trabalhamos a exceção com o apóstrofo depois do <em>s</em>: <em>Lucas’ car</em>.</li>
+              <li><strong>A / An indicam substantivo no contexto da página:</strong> se a estrutura começa com <em>a</em> ou <em>an</em>, o foco aqui não é ação, mas uma coisa / evento / nome. Por isso, <em>a play</em> não é “jogar”, e sim “uma peça”.</li>
+              <li><strong>Play pode ser verbo ou substantivo:</strong> <em>I play volleyball</em> é verbo. Já <em>a play with my favourite actors</em> é substantivo.</li>
+              <li><strong>Dance também muda de função:</strong> em <em>a dance performance</em>, <em>dance</em> não é “dançar”, mas “dança” como substantivo.</li>
+              <li><strong>Talk no contexto:</strong> vimos que <em>talk</em> pode ser “conversa”, mas também pode aparecer como “palestra”, dependendo da situação.</li>
+              <li><strong>Pronúncia e linking:</strong> praticamos ligações como <em>about an</em> e <em>about an interesting topic</em>, para deixar a leitura mais fluida.</li>
+              <li><strong>That’s not for me:</strong> o sentido não é apenas literal. No contexto do convite, a ideia era “isso não é muito a minha praia” ou “não curto muito isso”.</li>
+              <li><strong>In the mood for:</strong> trabalhamos essa expressão como “estar a fim de / estar no clima para”. Ex.: <em>I’m in the mood for some live music.</em></li>
+              <li><strong>That’s more my style:</strong> a frase foi entendida como algo que combina mais com seu gosto, especialmente em contraste com outra opção já mencionada.</li>
+              <li><strong>Leitura com entonação:</strong> o foco não é ler perfeito ainda, mas ler melhor do que antes e entender o que está sendo dito para acertar o ritmo e a intenção.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/8jDa4ZKZKms"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">74%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Fatima</span></td>
+                <td><span class="talk-percent">26%</span></td>
+                <td class="talk-time">~13 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Lembrar de ler o pós-aula de 2 a 3x na semana.</li>
+            </ul>
+            <p style="margin:6px 0 0 0;">
+              <a
+                href="https://babadum.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary"
+                style="padding:8px 12px;border-radius:8px;font-weight:700;"
+              >
+                🎮 Abrir tarefa de casa (Babadum)
+              </a>
+            </p>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
